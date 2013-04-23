@@ -27,6 +27,28 @@ group :development do
   gem 'twitter-bootstrap-rails'
 end
 
+group :development, :test do
+  gem "rspec-rails", "~> 2.0"
+  gem 'guard-rspec'
+  gem 'guard-spork'
+end
+
+group :test do
+  gem 'capybara', "~> 2.0"
+  gem 'factory_girl_rails'
+  gem 'mongoid-rspec'
+  gem 'database_cleaner'
+
+  case RUBY_PLATFORM
+  when /darwin/i
+  	gem 'rb-fsevent', :require => false
+    gem 'growl'
+  when /linux/i
+  	gem 'rb-inotify', :require => false
+    gem 'libnotify'
+  end
+end
+
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
