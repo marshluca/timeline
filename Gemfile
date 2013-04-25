@@ -21,7 +21,7 @@ end
 gem 'jquery-rails'
 
 group :development do
-  gem 'thin'
+  gem 'puma'
   gem 'rb-readline'
   gem 'rails-backbone'
   gem 'twitter-bootstrap-rails'
