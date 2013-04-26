@@ -1,4 +1,3 @@
-# source 'https://rubygems.org'
 source 'http://ruby.taobao.org'
 
 gem 'rails', '3.2.13'
@@ -8,6 +7,9 @@ gem 'rails', '3.2.13'
 
 gem 'mongoid'
 gem 'devise'
+gem 'jquery-rails'
+gem 'rails-backbone'
+gem 'twitter-bootstrap-rails'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -20,37 +22,16 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'jquery-rails'
-
-group :development do
-  gem 'puma'
-  gem 'rb-readline'
-  gem 'rails-backbone'
-  gem 'twitter-bootstrap-rails'
-end
-
 group :development, :test do
-  gem "rspec-rails", "~> 2.0"
-  gem 'factory_girl_rails'
-  gem 'mongoid-rspec'
-  gem 'guard-rspec'
-  gem 'guard-spork'
+  gem 'rb-readline'
+  gem 'puma'
+  gem 'jasmine'
+  gem 'minitest-rails'
 end
 
 group :test do
-  gem 'capybara', "~> 2.0"
-  gem 'database_cleaner'
-
-  case RUBY_PLATFORM
-  when /darwin/i
-  	gem 'rb-fsevent', :require => false
-    gem 'growl'
-  when /linux/i
-  	gem 'rb-inotify', :require => false
-    gem 'libnotify'
-  end
+  gem 'minitest-rails-capybara'
 end
-
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

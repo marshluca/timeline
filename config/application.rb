@@ -23,7 +23,8 @@ module Timeline
 
     config.generators do |g|
       g.orm :mongoid
-      g.test_framework :rspec
+      g.test_framework :mini_test, :spec => true, :fixture => true
+      g.integration_tool :mini_test
       # g.view_specs false
       # g.helper_specs false
     end
