@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'http://ruby.taobao.org'
 
 gem 'rails', '3.2.13'
 
@@ -6,6 +6,10 @@ gem 'rails', '3.2.13'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'mongoid'
+gem 'devise'
+gem 'jquery-rails'
+gem 'rails-backbone'
+gem 'twitter-bootstrap-rails'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -18,15 +22,13 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'jquery-rails'
-
-group :development do
-  gem 'thin'
+group :development, :test do
+  gem 'puma'
+  gem 'jasmine'
   gem 'rb-readline'
-  gem 'rails-backbone'
-  gem 'twitter-bootstrap-rails'
+  gem 'minitest-rails'
+  gem 'minitest-rails-capybara'
 end
-
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
