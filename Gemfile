@@ -23,13 +23,10 @@ group :assets do
 end
 
 group :development, :test do
-  gem 'rb-readline'
   gem 'puma'
   gem 'jasmine'
+  gem 'rb-readline'
   gem 'minitest-rails'
-end
-
-group :test do
   gem 'minitest-rails-capybara'
 end
 
