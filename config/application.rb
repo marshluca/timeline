@@ -23,9 +23,8 @@ module Timeline
 
     config.generators do |g|
       g.orm :mongoid
-      # g.view_specs false
-      # g.helper_specs false
-      # g.test_framework :test_unit
+      g.test_framework :mini_test, :spec => true, :fixture => false
+      g.integration_tool :mini_test
     end
 
     # Custom directories with classes and modules you want to be autoloadable.

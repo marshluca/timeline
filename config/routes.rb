@@ -1,4 +1,15 @@
 Timeline::Application.routes.draw do
+
+  devise_for :users
+
+  resources :events
+
+  root to: "home#index"
+
+  get "home/index"
+  get "home/about"
+  get "home/feedback"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
