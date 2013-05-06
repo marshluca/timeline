@@ -50,9 +50,9 @@ Spork.prefork do
     # clean up database
     require "database_cleaner"
     config.before(:suite) do
-      DatabaseCleaner.strategy = :transaction
+      DatabaseCleaner.strategy = :truncation
       DatabaseCleaner.clean_with(:truncation)
-      Database.orm = 'mongoid'
+      DatabaseCleaner.orm = 'mongoid'
     end
 
     config.before(:each) do
@@ -67,7 +67,6 @@ end
 
 Spork.each_run do
   # This code will be run each time you run your specs.
-
 end
 
 # --- Instructions ---
