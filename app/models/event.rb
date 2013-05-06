@@ -4,4 +4,7 @@ class Event
   field :category, type: String
   field :duration, type: Integer, :default => 0
   field :description, type: String
+
+  validates :title, presence: true
+  validates :duration, presence: true
 end
