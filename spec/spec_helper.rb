@@ -8,16 +8,12 @@ Spork.prefork do
   # if you change any configuration or code from libraries loaded here, you'll
   # need to restart spork for it take effect.
 
-end
-
-Spork.each_run do
-  # This code will be run each time you run your specs.
-
   # This file is copied to spec/ when you run 'rails generate rspec:install'
   ENV["RAILS_ENV"] ||= 'test'
   require File.expand_path("../../config/environment", __FILE__)
   require 'rspec/rails'
   require 'rspec/autorun'
+  require 'capybara/rspec'
 
   # Requires supporting ruby files with custom matchers and macros, etc,
   # in spec/support/ and its subdirectories.
@@ -50,7 +46,28 @@ Spork.each_run do
     # the seed, which is printed after each run.
     #     --seed 1234
     config.order = "random"
+
+    # clean up database
+    require "database_cleaner"
+    config.before(:suite) do
+      DatabaseCleaner.strategy = :transaction
+      DatabaseCleaner.clean_with(:truncation)
+      Database.orm = 'mongoid'
+    end
+
+    config.before(:each) do
+      DatabaseCleaner.start
+    end
+
+    config.after(:each) do
+      DatabaseCleaner.clean
+    end
   end
+end
+
+Spork.each_run do
+  # This code will be run each time you run your specs.
+
 end
 
 # --- Instructions ---
