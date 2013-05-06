@@ -24,10 +24,23 @@ end
 
 group :development, :test do
   gem 'puma'
-  gem 'jasmine'
   gem 'rb-readline'
-  gem 'minitest-rails'
-  gem 'minitest-rails-capybara'
+  gem 'quiet_assets'
+
+  gem 'jasmine'
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+  gem 'guard'
+  gem 'spork'
+  gem 'guard-rspec'
+  gem 'guard-spork'
+end
+
+group :test do
+  gem 'faker'
+  gem 'capybara'
+  gem 'launchy'
+  gem 'database_cleaner'
 end
 
 # To use ActiveModel has_secure_password
