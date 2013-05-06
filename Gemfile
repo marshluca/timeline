@@ -34,12 +34,14 @@ group :development, :test do
   gem 'spork'
   gem 'guard-rspec'
   gem 'guard-spork'
+  # gem 'guard-jasmine'
+  # gem 'guard-livereload'
 end
 
 group :test do
   gem 'faker'
   gem 'capybara'
-  gem 'launchy'
+  # gem 'launchy'
   gem 'database_cleaner'
 end
 
