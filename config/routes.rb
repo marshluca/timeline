@@ -6,9 +6,9 @@ Timeline::Application.routes.draw do
 
   root to: "home#index"
 
-  get "home/index"
-  get "home/about"
-  get "home/feedback"
+  get "home/index",    as: 'home'
+  get "home/about",    as: 'about'
+  get "home/feedback", as: 'feedback'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
