@@ -15,39 +15,16 @@ feature 'Vistor signs up' do
     sign_up_with 'nilgnahz@gmail', ''
     expect(page).to have_content('Sign in')
   end
-
-  def sign_up_with(email, password)
-    visit new_user_registration_path
-    fill_in 'Email', with: email
-    fill_in 'Password', with: password
-    fill_in 'Password confirmation', with: password
-    click_button 'Sign up'
-  end
 end
 
 feature 'Vistor signs in' do
-  before do
-    User.create(
-      :email => 'marshluca@gmail.com',
-      :password => 'zaq12wsx',
-      :password_confirmation => 'zaq12wsx'
-    )
-  end
-
   scenario 'with valid email and password' do
-    sign_in_with 'marshluca@gmail.com', 'zaq12wsx'
+    sign_in_with('marshluca@gmail.com', 'zaq12wsx')
     expect(page).to have_content('Home#index')
   end
 
   scenario 'with incorrect password' do
-    sign_in_with 'marshluca@gmail', 'password'
+    sign_in_with('marshluca@gmail.com', '123456')
     expect(page).to have_content('Sign in')
-  end
-
-  def sign_in_with(email, password)
-    visit new_user_session_path
-    fill_in 'Email', with: email
-    fill_in 'Password', with: password
-    click_button 'Sign in'
   end
 end
