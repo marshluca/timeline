@@ -19,7 +19,7 @@ end
 
 feature 'Vistor signs in' do
   scenario 'with valid email and password' do
-    sign_in_with('marshluca@gmail.com', 'zaq12wsx')
+    sign_in_with_default
     expect(page).to have_content('Home#index')
   end
 

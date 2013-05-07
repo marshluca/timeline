@@ -16,5 +16,7 @@ module Features
       fill_in 'Password', with: password
       click_button 'Sign in'
     end
+
+    alias :sign_in_with_default :sign_in_with
   end
 end
