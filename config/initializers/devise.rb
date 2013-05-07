@@ -238,3 +238,11 @@ Devise.setup do |config|
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = "/my_engine/users/auth"
 end
+
+Devise::SessionsController.class_eval do
+  skip_before_filter :require_no_authentication, :only => [:new, :create]
+end
+
+Devise::RegistrationsController.class_eval do
+  skip_before_filter :require_no_authentication, :only => [:new, :create]
+end
