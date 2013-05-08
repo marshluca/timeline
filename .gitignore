@@ -17,3 +17,6 @@
 
 .rvmrc
 tags
+
+.DS_Store
+coverage

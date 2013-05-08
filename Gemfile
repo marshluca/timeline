@@ -43,6 +43,7 @@ group :test do
   # gem 'launchy'
   gem 'capybara'
   gem 'database_cleaner'
+  gem 'simplecov', :require => false
 end
 
 # To use ActiveModel has_secure_password
