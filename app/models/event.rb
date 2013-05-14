@@ -13,7 +13,7 @@ class Event
   field :stars,       type: Integer, default: 0
   field :state,       type: Integer, default: STATE['done']
 
-  belongs_to :user, inverse_of: "events"
+  belongs_to :user, inverse_of: :event
 
   validates_presence_of :title
 

@@ -3,11 +3,11 @@ class Category
 
   field :name,     type: String
   field :slug,     type: String
-  field :postion,  type: Integer
   field :count,    type: Integer, default: 0
-  field :subcates, type: Array
+  field :postion,  type: Integer, default: -1
 
-  belongs_to :user
+  belongs_to  :user
+  embeds_many :taxons
 
   validates_presence_of :name
 
