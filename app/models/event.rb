@@ -1,5 +1,6 @@
 class Event
   include Mongoid::Document
+  include Mongoid::Timestamps
 
   STATE = { done: 0, todo: 1, doing: 2, reject: 3 }
 
