@@ -5,7 +5,7 @@ class Event
 
   field :title,       type: String
   field :description, type: String
-  field :duration,    type: Integer, default: 0  # seconds as unit
+  field :duration,    type: Integer, default: 0  # minutes as unit
   field :category,    type: String,  default: 'Default'
   field :subcate,     type: String,  default: 'Default'
   field :tags,        type: Array,   default: Array.new
