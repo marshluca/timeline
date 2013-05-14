@@ -6,6 +6,7 @@ class Event
 
   field :title,       type: String
   field :description, type: String
+  field :location,    type: String
   field :duration,    type: Integer, default: 0  # minutes as unit
   field :category,    type: String,  default: 'Default'
   field :subcate,     type: String,  default: 'Default'
