@@ -150,12 +150,13 @@ body {
 #content {
   @include box-flex(1);
   @include vbox();
-  overflow: hidden;  
+  overflow: hidden;
+  padding: 10px;
 }
 
-#content > *:not(.active) {
-  display: none !important;
-}
+// #content > *:not(.active) {
+//   display: none !important;
+// }
 
 #messages {
   @include box-flex(1);
