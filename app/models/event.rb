@@ -16,6 +16,7 @@ class Event
   field :tags,        type: Array,   default: Array.new
   field :coordinate,  type: Array,   default: Array.new(2, 0.0)
   field :stars,       type: Integer, default: 0
+  field :locale,      type: String,  default: 'en'
   field :state,       type: Integer, default: STATE[:done]
 
   belongs_to :user, inverse_of: :event
