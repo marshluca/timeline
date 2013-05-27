@@ -2,7 +2,11 @@ Timeline::Application.routes.draw do
 
   devise_for :users
 
-  resources :events
+  resources :events do
+    collection do
+      get 'todo'
+    end
+  end
 
   root to: "home#index"
 
