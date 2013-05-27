@@ -7,7 +7,10 @@ class Event
   field :title,       type: String
   field :description, type: String
   field :location,    type: String
+  field :start_time,  type: Datetime
+  field :end_time,    type: Datetime
   field :duration,    type: Integer, default: 0  # minutes as unit
+  filed :date,        type: Date,    default: Date.today
   field :category,    type: String,  default: 'Default'
   field :subcate,     type: String,  default: 'Default'
   field :tags,        type: Array,   default: Array.new
