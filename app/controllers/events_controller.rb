@@ -1,8 +1,23 @@
 class EventsController < ApplicationController
-  # GET /events
+  # GET /events/?date=2013-05-27
   # GET /events.json
   def index
-    @events = Event.all
+    if params[:date] then
+      @events = Event.where(date:params[:date])
+    else
+      @events = Event.all
+    end
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @events }
+    end
+  end
+
+  # GET /events/todo
+  # GET /events/todo.json
+  def todo
+    @events = Event.where(state:1)
 
     respond_to do |format|
       format.html # index.html.erb
