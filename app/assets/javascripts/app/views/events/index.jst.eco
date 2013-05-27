@@ -3,8 +3,8 @@
 <% for event in @events: %>
   <div class="item" data-id="<%= event.id %>">
     <a data-type="show"><%= event.title %></a>
-    
-    <a data-type="edit">Edit</a> 
+
+    <a data-type="edit">Edit</a>
     <a data-type="destroy">Destroy</a>
   </div>
 <% end %>

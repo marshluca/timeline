@@ -16,9 +16,9 @@ class App extends Spine.Controller
     super
 
     # Initialize controllers:
-    #  @append(@items = new App.Items)
-    #  ...
+    @append(@events = new App.Events)
 
-    Spine.Route.setup()
+    App.Event.one 'refresh', ->
+      Spine.Route.setup()
 
 window.App = App
