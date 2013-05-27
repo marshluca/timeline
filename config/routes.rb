@@ -11,7 +11,7 @@ Timeline::Application.routes.draw do
     end
   end
 
-  root to: "home#index"
+  root to: "events#index"
 
   get "home/index",    as: 'home'
   get "home/about",    as: 'about'
