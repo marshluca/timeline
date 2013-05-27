@@ -1,0 +1,72 @@
+<h1>Edit Event</h1>
+
+<a data-type="back">Back</a>
+
+<form>
+  
+  <label>
+    <span>Title</span>
+    <input 
+      type="text" name="title" 
+      value="<%= @title %>" required
+ autofocus>
+    <br />
+  </label>
+  
+  <label>
+    <span>Description</span>
+    <input 
+      type="text" name="description" 
+      value="<%= @description %>" required
+>
+    <br />
+  </label>
+  
+  <label>
+    <span>Duration</span>
+    <input 
+      type="text" name="duration" 
+      value="<%= @duration %>" required
+>
+    <br />
+  </label>
+  
+  <label>
+    <span>Category</span>
+    <input 
+      type="text" name="category" 
+      value="<%= @category %>" required
+>
+    <br />
+  </label>
+  
+  <label>
+    <span>Tags</span>
+    <input 
+      type="text" name="tags" 
+      value="<%= @tags %>" required
+>
+    <br />
+  </label>
+  
+  <label>
+    <span>Stars</span>
+    <input 
+      type="text" name="stars" 
+      value="<%= @stars %>" required
+>
+    <br />
+  </label>
+  
+  <label>
+    <span>State</span>
+    <input 
+      type="text" name="state" 
+      value="<%= @state %>" required
+>
+    <br />
+  </label>
+  
+  <button>Edit</button>
+
+</form>

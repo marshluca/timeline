@@ -1,2 +1,12 @@
-<div class="index">
-</div>
+<h1>Listing Events</h1>
+
+<% for event in @events: %>
+  <div class="item" data-id="<%= event.id %>">
+    <a data-type="show"><%= event.title %></a>
+    
+    <a data-type="edit">Edit</a> 
+    <a data-type="destroy">Destroy</a>
+  </div>
+<% end %>
+
+<p><a data-type="new">New Event</a></p>
