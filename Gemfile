@@ -9,6 +9,7 @@ gem 'mongoid'
 gem 'devise'
 
 gem 'jquery-rails'
+gem 'json2-rails'
 gem 'spine-rails'
 gem 'eco'
 
