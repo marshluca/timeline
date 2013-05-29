@@ -13,9 +13,11 @@ Timeline::Application.routes.draw do
 
   root to: "events#index"
 
-  get "home/index",    as: 'home'
-  get "home/about",    as: 'about'
-  get "home/feedback", as: 'feedback'
+  get "home/index",        as: 'home'
+  get "home/about",        as: 'about'
+  get "home/feedback",     as: 'feedback'
+  get "settings/profile",  as: 'profile'
+  get "settings/password", as: 'password'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
