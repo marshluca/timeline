@@ -1,6 +1,7 @@
 Timeline::Application.routes.draw do
 
   devise_for :users
+  resources :users
 
   get 'events/:year/:month/:day' => 'events#index',
        year: /\d{4}/, month: /\d{2}/, day: /\d{2}/
