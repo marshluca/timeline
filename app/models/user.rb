@@ -42,7 +42,6 @@ class User
 
   # Additional fields
   field :username, :type => String
-  field :fullname, :type => String
   field :birthday, :type => Date
   field :location, :type => String
   field :bio,      :type => String
@@ -58,6 +57,6 @@ class User
   has_many :categories, dependent: :destroy
   has_many :tags,       dependent: :destroy
 
-  validates_presence_of :username
+  validates_presence_of :email
 
 end
