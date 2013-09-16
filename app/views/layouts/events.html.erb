@@ -8,10 +8,10 @@
   <%= csrf_meta_tag %>
   <script type="text/javascript">
     $(function() {
-      $('a#open-icon').click(function( e ) {
+      $('a[href="#menu"], a[href="#page"]').click(function() {
         e.stopImmediatePropagation();
         e.preventDefault();
-        $('nav#menu').trigger( 'toggle.mm' );
+        $('nav#menu').trigger('toggle.mm');
       });
 
       $('nav#menu').mmenu();
@@ -20,15 +20,6 @@
 </head>
 <body>
   <div id="page">
-    <div id="header">
-      Header
-    </div>
-    <div id="content">
-      <%= yield %>
-    </div>
-    <div id="footer">
-      Footer
-    </div>
     <nav id="menu">
       <ul>
         <li><a href="/">Home</a></li>
@@ -36,6 +27,13 @@
         <li><a href="/contact/">Contact</a></li>
       </ul>
     </nav>
+    <div id="header">
+      <a href="#menu"></a>
+      Header
+    </div>
+    <div id="content">
+      <%= yield %>
+    </div>
   </div>
 </body>
 </html>
