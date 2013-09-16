@@ -616,15 +616,15 @@ html.mm-iphone-addressbar.mm-opened body
 /*
 	Sizing and positioning for larger screens
 */
-@media all and (min-width: 500px) {
+@media all and (min-width: 300px) {
 
 	.mm-menu
 	{
-		width: 500px;
+		width: 300px;
 	}
 	html.mm-opening .mm-page,
 	html.mm-opening #mm-blocker
 	{
-		left: 500px;
+		left: 300px;
 	}
 }
