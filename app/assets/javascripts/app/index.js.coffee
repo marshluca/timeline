@@ -19,6 +19,6 @@ class App extends Spine.Controller
     @append(@events = new App.Events)
 
     App.Event.one 'refresh', ->
-      Spine.Route.setup()
+      Spine.Route.setup(history: true)
 
 window.App = App
