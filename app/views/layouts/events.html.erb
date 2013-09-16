@@ -2,17 +2,40 @@
 <html>
 <head>
   <title>Timeline</title>
+  <meta name="viewport" content="width=device-width initial-scale=1.0 maximum-scale=1.0 user-scalable=yes" />
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tag %>
+  <script type="text/javascript">
+    $(function() {
+      $('a#open-icon').click(function( e ) {
+        e.stopImmediatePropagation();
+        e.preventDefault();
+        $('nav#menu').trigger( 'toggle.mm' );
+      });
 
-  <script type="text/javascript" charset="utf-8">
-    jQuery(function(){
-      new App({el: $("#app")});
+      $('nav#menu').mmenu();
     });
   </script>
 </head>
 <body>
-  <%= yield %>
+  <div id="page">
+    <div id="header">
+      Header
+    </div>
+    <div id="content">
+      <%= yield %>
+    </div>
+    <div id="footer">
+      Footer
+    </div>
+    <nav id="menu">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/about/">About us</a></li>
+        <li><a href="/contact/">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
 </body>
 </html>
