@@ -8,6 +8,9 @@ gem 'rails', '3.2.13'
 gem 'mongoid'
 gem 'devise'
 
+#grape api
+gem "grape"
+
 gem 'jquery-rails', '~> 2.1.4'
 gem 'json2-rails'
 gem 'spine-rails'
