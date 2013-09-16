@@ -8,14 +8,13 @@
   <%= csrf_meta_tag %>
   <script type="text/javascript">
     $(function() {
-      $('a[href="#menu"], a[href="#page"]').click(function() {
+      $('a[href="#menu"], a[href="#page"]').click(function(e) {
         e.stopImmediatePropagation();
         e.preventDefault();
         $('nav#menu').trigger('toggle.mm');
       });
-
       $('nav#menu').mmenu();
-    });
+    })
   </script>
 </head>
 <body>
