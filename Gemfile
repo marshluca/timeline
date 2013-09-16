@@ -29,7 +29,6 @@ end
 
 group :development, :test do
   gem 'puma'
-  gem 'rb-readline'
   gem 'quiet_assets'
 
   gem 'jasmine'
