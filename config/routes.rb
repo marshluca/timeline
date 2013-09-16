@@ -1,7 +1,8 @@
 Timeline::Application.routes.draw do
 
   #grape api
-  mount Event::API => '/event'
+  require "timeline"
+  mount Timeline::API => '/timeline'
 
   devise_for :users
   resources :users
