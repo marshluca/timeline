@@ -22,4 +22,12 @@ describe Events::API, :type => :feature do
       page.driver.status_code.should eql 201  #created
     end
   end
+
+  describe "update an event" do
+    it 'should update an event with event id and event info' do
+      @id = '1'
+      page.driver.browser.put '/timeline/v1/events/'+@id, event:"my event", format:"json"
+      page.driver.status_code.should eql 200  #accepted
+    end
+  end
 end
