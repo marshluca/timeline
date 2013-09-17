@@ -2,7 +2,7 @@ Timeline::Application.routes.draw do
 
   #grape api
   require "timeline"
-  mount Timeline::API => '/timeline'
+  mount Timeline::API => '/api'
 
   devise_for :users
   resources :users
