@@ -30,4 +30,12 @@ describe Events::API, :type => :feature do
       page.driver.status_code.should eql 200  #accepted
     end
   end
+
+  describe "delete an event" do
+    it 'should delete an event with event id' do
+      @id = '1' 
+      page.driver.browser.delete '/timeline/v1/events/'+@id, format:"json"
+      page.driver.status_code.should eql 200  #accepted
+    end
+  end
 end
