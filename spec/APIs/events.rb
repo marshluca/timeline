@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe Events::API, :type => :feature do
+  # GET timeline/v1/events
   describe "get event list" do
     it 'should get a list of latest events limited 20 records' do
       visit '/timeline/v1/events'
@@ -8,6 +9,7 @@ describe Events::API, :type => :feature do
     end
   end
 
+  # GET timeline/v1/events/1
   describe "get an event" do
     it 'should get an event by id' do
       @id = '1'
@@ -16,6 +18,7 @@ describe Events::API, :type => :feature do
     end
   end
 
+  # POST timeline/v1/events -d "event=new event"
   describe "create an event" do
     it 'should create an event with event info' do
       page.driver.browser.post '/timeline/v1/events/', event:"new event", format:"json"
@@ -23,6 +26,7 @@ describe Events::API, :type => :feature do
     end
   end
 
+  # PUT timeline/v1/events/1 -d "event=my event"
   describe "update an event" do
     it 'should update an event with event id and event info' do
       @id = '1'
@@ -31,6 +35,7 @@ describe Events::API, :type => :feature do
     end
   end
 
+  # DELETE timeline/v1/events/1
   describe "delete an event" do
     it 'should delete an event with event id' do
       @id = '1' 
