@@ -12,7 +12,7 @@ module Events
 
       desc "Return a list of events."
       get do
-        "event list"
+        @events = Event.all.limit(20).to_a
       end
 
       desc "Return an event."
