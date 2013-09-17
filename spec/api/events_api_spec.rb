@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Events::API, :type => :feature do
+describe Events::API do
   # GET timeline/v1/events
   describe "get event list" do
     it 'should get a list of latest events limited 20 records' do
