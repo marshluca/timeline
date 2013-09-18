@@ -39,8 +39,8 @@ describe Events::API do
   describe "update an event" do
     it 'should update an event with event id and event info' do
       @id = '1'
-      page.driver.browser.put '/api/v1/events/'+@id, event:"my event", format:"json"
-      page.driver.status_code.should eql 200  #accepted
+      put '/api/v1/events/'+@id, event:"my event"
+      expect(response.status).to eq 200  #accepted
     end
   end
 
