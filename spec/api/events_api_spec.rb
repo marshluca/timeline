@@ -48,8 +48,8 @@ describe Events::API do
   describe "delete an event" do
     it 'should delete an event with event id' do
       @id = '1' 
-      page.driver.browser.delete '/api/v1/events/'+@id, format:"json"
-      page.driver.status_code.should eql 200  #accepted
+      delete '/api/v1/events/'+@id
+      expect(response.status).to eq 200  #accepted
     end
   end
 end
