@@ -31,10 +31,10 @@ describe Events::API do
     end
   end
 
-  # POST api/v1/events -d "event=new event"
+  # POST api/v1/events -d "title=new event"
   describe "create an event" do
     it 'should create an event with valid event info' do
-      post "/api/v1/events", event:"new event"
+      post "/api/v1/events", title:"new event"
       expect(response.status).to eq 201
     end
   end

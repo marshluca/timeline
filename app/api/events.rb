@@ -27,10 +27,10 @@ module Events
 
       desc "Create an event."
       params do
-        requires :event, type: String, desc: "Your event."
+        requires :title, type: String, desc: "Your event."
       end
       post do
-        "create an event with: #{params[:event]}"
+        @event = Event.create title: params[:title]
       end
 
       desc "Update an event."
