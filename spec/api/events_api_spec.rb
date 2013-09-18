@@ -11,11 +11,16 @@ describe Events::API do
 
   # GET api/v1/events/1
   describe "get an event" do
+
+    before do
+      @event = FactoryGirl.create :event
+    end
+
     it 'should get an event by id' do
-      @id = '1'
-      @event = "\"event "+@id+"\""
-      get '/api/v1/events/'+@id
-      expect(response.body).to eq @event
+      get '/api/v1/events/'+@event.id
+      @response_event_id = JSON.parse(response.body)["_id"]
+
+      expect(@response_event_id).to eq @event.id.to_s
     end
   end
 
