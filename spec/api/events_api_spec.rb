@@ -13,8 +13,9 @@ describe Events::API do
   describe "get an event" do
     it 'should get an event by id' do
       @id = '1'
-      visit '/api/v1/events/'+@id
-      page.should have_content 'event '+@id
+      @event = "\"event "+@id+"\""
+      get '/api/v1/events/'+@id
+      expect(response.body).to eq @event
     end
   end
 
