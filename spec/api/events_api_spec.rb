@@ -1,17 +1,24 @@
 require 'spec_helper'
 
 describe Events::API do
+
   # GET api/v1/events
   describe "get event list" do
+    before do
+      @events = FactoryGirl.create_list :event, 21
+    end
+
     it 'should get a list of latest events limited 20 records' do
       get '/api/v1/events'
-      expect(JSON.parse(response.body)).to eq []
+      @reponse_events = JSON.parse(response.body)
+
+      expect(response.status).to eq 200   #OK
+      expect(@reponse_events.length).to be <= 20
     end
   end
 
   # GET api/v1/events/1
   describe "get an event" do
-
     before do
       @event = FactoryGirl.create :event
     end
