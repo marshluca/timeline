@@ -61,10 +61,13 @@ describe Events::API do
 
   # DELETE api/v1/events/1
   describe "delete an event" do
+    before do
+      @event = FactoryGirl.create :event
+    end
+
     it 'should delete an event with event id' do
-      @id = '1' 
-      delete '/api/v1/events/'+@id
-      expect(response.status).to eq 200  #accepted
+      delete '/api/v1/events/'+@event.id
+      expect(response.status).to eq 200  #OK
     end
   end
 end
