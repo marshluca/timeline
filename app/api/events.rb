@@ -17,11 +17,11 @@ module Events
 
       desc "Return an event."
       params do
-        requires :id, type: Integer, desc: "Event id."
+        requires :id, type: String, desc: "Event id."
       end
       route_param :id do
         get do
-          "event #{params[:id]}"
+          @event = Event.find(params[:id])
         end
       end
 
