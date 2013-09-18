@@ -21,6 +21,14 @@ describe Events::API do
 
   # POST api/v1/events -d "event=new event"
   describe "create an event" do
+    it 'should create an event with valid event info' do
+      post "/api/v1/events", event:"new event"
+      expect(response.status).to eq 201
+    end
+  end
+
+  # POST api/v1/events -d "event=new event"
+  describe "create an event" do
     it 'should not create an event with invalid parameter' do
       post "/api/v1/events", event: { title: "title" }
       expect(JSON.parse(response.body)).to eq({"error"=>"invalid parameter: event"})
