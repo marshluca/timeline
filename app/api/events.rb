@@ -35,16 +35,18 @@ module Events
 
       desc "Update an event."
       params do
-        requires :id, type: Integer, desc: "Event ID."
-        requires :event, type: String, desc: "Your event."
+        requires :id, type: String, desc: "Event ID."
+        requires :title, type: String, desc: "Your event."
       end
       put ':id' do
-        "upate event #{params[:id]} with: #{params[:event]}"
+        @event = Event.find(params[:id])
+        @event.update_attributes title: params[:title]
+        return @event
       end
 
       desc "Delete an event."
       params do
-        requires :id, type: Integer, desc: "Event ID."
+        requires :id, type: String, desc: "Event ID."
       end
       delete ':id' do
         "delete event #{params[:id]}"

@@ -47,14 +47,14 @@ describe Events::API do
     end
   end
 
-  # PUT api/v1/events/1 -d "event=my event"
+  # PUT api/v1/events/1 -d "title=my event"
   describe "update an event" do
     before do
       @event = FactoryGirl.create :event
     end
 
     it 'should update an event with event id and event info' do
-      put '/api/v1/events/'+@event.id, event:"my event"
+      put '/api/v1/events/'+@event.id, title: @event.title
       expect(response.status).to eq 200  #OK
     end
   end
