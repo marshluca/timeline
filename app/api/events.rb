@@ -49,7 +49,8 @@ module Events
         requires :id, type: String, desc: "Event ID."
       end
       delete ':id' do
-        "delete event #{params[:id]}"
+        @event = Event.find(params[:id])
+        @event.delete
       end
 
     end
