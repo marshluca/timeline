@@ -4,8 +4,8 @@ describe Events::API do
   # GET api/v1/events
   describe "get event list" do
     it 'should get a list of latest events limited 20 records' do
-      visit '/api/v1/events'
-      page.should have_content 'event list'
+      get '/api/v1/events'
+      expect(JSON.parse(response.body)).to eq []
     end
   end
 
@@ -20,9 +20,9 @@ describe Events::API do
 
   # POST api/v1/events -d "event=new event"
   describe "create an event" do
-    it 'should create an event with event info' do
-      page.driver.browser.post '/api/v1/events/', event:"new event", format:"json"
-      page.driver.status_code.should eql 201  #created
+    it 'should not create an event with invalid parameter' do
+      post "/api/v1/events", event: { title: "title" }
+      expect(JSON.parse(response.body)).to eq({"error"=>"invalid parameter: event"})
     end
   end
 
