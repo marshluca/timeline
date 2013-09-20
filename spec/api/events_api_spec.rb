@@ -2,8 +2,7 @@ require 'spec_helper'
 
 describe Events::API do
 
-  # GET api/v1/events
-  describe "get event list" do
+  describe "GET /api/v1/events" do
     before do
       @events = FactoryGirl.create_list :event, 21
     end
@@ -17,8 +16,7 @@ describe Events::API do
     end
   end
 
-  # GET api/v1/events/1
-  describe "get an event" do
+  describe "GET /api/v1/events/:id" do
     before do
       @event = FactoryGirl.create :event
     end
@@ -31,24 +29,19 @@ describe Events::API do
     end
   end
 
-  # POST api/v1/events -d "title=new event"
-  describe "create an event" do
+  describe "POST /api/v1/events" do
     it 'should create an event with valid event info' do
-      post "/api/v1/events", title:"new event"
+      post "/api/v1/events", title: "new event"
       expect(response.status).to eq 201
     end
-  end
 
-  # POST api/v1/events -d "invalid"
-  describe "create an event" do
     it 'should not create an event with invalid parameter' do
       post "/api/v1/events", "invalid"
       expect(response.status).to eq 400
     end
   end
 
-  # PUT api/v1/events/1 -d "title=my event"
-  describe "update an event" do
+  describe "PUT /api/v1/events/:id" do
     before do
       @event = FactoryGirl.create :event
     end
@@ -59,8 +52,7 @@ describe Events::API do
     end
   end
 
-  # DELETE api/v1/events/1
-  describe "delete an event" do
+  describe "DELETE /api/v1/events/:id" do
     before do
       @event = FactoryGirl.create :event
     end
