@@ -32,6 +32,7 @@ group :assets do
 end
 
 group :development, :test do
+  gem 'mina'
   gem 'puma'
   gem 'quiet_assets'
 
