@@ -1,7 +1,7 @@
 require 'mina/bundler'
 require 'mina/rails'
 require 'mina/git'
-# require 'mina/rbenv'  # for rbenv support. (http://rbenv.org)
+require 'mina/rbenv'  # for rbenv support. (http://rbenv.org)
 # require 'mina/rvm'    # for rvm support. (http://rvm.io)
 
 # Basic settings:
@@ -12,9 +12,9 @@ require 'mina/git'
 
 set :user, 'deploy'
 set :domain, '192.168.1.14'
-set :deploy_to, '/home/deploy/www/timeline'
+set :deploy_to, '/home/deploy/www/test'
 set :repository, 'git@github.com:marshluca/timeline.git'
-set :branch, 'develop'
+set :branch, 'feature/mina_deploy'
 
 # Manually create these paths in shared/ (eg: shared/config/database.yml) in your server.
 # They will be linked in the 'deploy:link_shared_paths' step.
@@ -29,7 +29,7 @@ set :shared_paths, ['config/mongoid.yml', 'log']
 task :environment do
   # If you're using rbenv, use this to load the rbenv environment.
   # Be sure to commit your .rbenv-version to your repository.
-  # invoke :'rbenv:load'
+  invoke :'rbenv:load'
 
   # For those using RVM, use this to load an RVM version@gemset.
   # invoke :'rvm:use[ruby-1.9.3-p125@default]'
