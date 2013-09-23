@@ -21,7 +21,7 @@ worker_processes 4
 
 # Help ensure your application will always spawn in the symlinked
 # "current" directory that Capistrano sets up.
-APP_PATH = "/Users/greg/projects/timeline"
+APP_PATH = Dir.pwd
 working_directory APP_PATH # available in 0.94.0+
 
 # listen on both a Unix domain socket and a TCP port,
