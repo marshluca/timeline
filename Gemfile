@@ -23,8 +23,12 @@ group :assets do
   gem 'coffee-rails', '~> 3.2.1'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer', :platforms => :ruby
+  gem 'therubyracer', :platforms => :ruby
   gem 'uglifier', '>= 1.0.3'
+
+  # Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
+  gem "less-rails" 
+  gem "twitter-bootstrap-rails"
 end
 
 group :development, :test do
