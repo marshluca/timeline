@@ -1,8 +1,12 @@
+$:.unshift './lib'
 require 'mina/bundler'
 require 'mina/rails'
 require 'mina/git'
 require 'mina/rbenv'  # for rbenv support. (http://rbenv.org)
 # require 'mina/rvm'    # for rvm support. (http://rvm.io)
+
+# under lib/mina from https://github.com/alfuken/mina-rails-unicorn-nginx-god
+require 'mina/unicorn'
 
 # Basic settings:
 #   domain       - The hostname to SSH to.
@@ -12,9 +16,9 @@ require 'mina/rbenv'  # for rbenv support. (http://rbenv.org)
 
 set :user, 'deploy'
 set :domain, '192.168.1.14'
-set :deploy_to, '/home/deploy/www/test'
+set :deploy_to, '/home/deploy/www/timeline'
 set :repository, 'git@github.com:marshluca/timeline.git'
-set :branch, 'feature/mina_deploy'
+set :branch, 'feature/automated_deployment'
 
 # Manually create these paths in shared/ (eg: shared/config/database.yml) in your server.
 # They will be linked in the 'deploy:link_shared_paths' step.
@@ -62,6 +66,7 @@ task :deploy => :environment do
 
     to :launch do
       queue "touch #{deploy_to}/tmp/restart.txt"
+      invoke :'unicorn:restart'
     end
   end
 end
