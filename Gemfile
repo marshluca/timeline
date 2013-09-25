@@ -28,7 +28,7 @@ group :assets do
 
   # Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
   gem "less-rails" 
-  gem "twitter-bootstrap-rails"
+  gem 'twitter-bootstrap-rails', git: 'git://github.com/seyhunak/twitter-bootstrap-rails.git', branch: 'bootstrap3'
 end
 
 group :development, :test do
