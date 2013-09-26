@@ -18,7 +18,7 @@ Dir['lib/mina/servers/*.rb'].each { |f| load f }
 
 set :repository,         'git@github.com:marshluca/timeline.git'
 set :keep_releases,       99
-set :default_server,     'production'
+set :default_server,     'development'
 
 ###########################################################################
 # Tasks
