@@ -27,6 +27,7 @@ class App.Events extends Spine.Controller
     e.preventDefault()
     item = $(e.target).item()
     @rightSection.html @view('events/show')(item)
+    # use Route
     # detail = new App.EventItem(item: item)
     # @rightSection.html detail.el
 

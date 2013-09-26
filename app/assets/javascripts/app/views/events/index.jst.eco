@@ -1,12 +1,14 @@
-<h1>Listing Events</h1>
+<div id="list">
+  <h1>Events</h1>
 
-<% for event in @events: %>
+  <% for event in @events: %>
   <div class="item" data-id="<%= event.id %>">
     <a data-type="show"><%= event.title %></a>
-
-    <a data-type="edit">Edit</a>
-    <a data-type="destroy">Destroy</a>
   </div>
-<% end %>
+  <% end %>
 
-<p><a data-type="new">New Event</a></p>
+  <p><a data-type="new">New Event</a></p>
+</div>
+
+<div id="right">
+</div>
