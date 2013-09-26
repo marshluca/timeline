@@ -83,6 +83,10 @@ p {
 }
 
 #center {
+  background: #ccc;
+}
+
+#list {
   float:left;
   width:60%;
   padding:10px;
@@ -92,6 +96,7 @@ p {
 #right {
   float:right;
   width:40%;
+  height:320px;
   padding:10px;
   background:#dff;
 }
@@ -99,5 +104,4 @@ p {
 #footer {
   clear:both;
   padding:10px;
-  background:#ff9;
 }
