@@ -1,8 +1,8 @@
 # FreeBSD
 namespace :env do
   task :development => [:environment] do
-    set :app,              'test'
-    set :branch,              'feature/automated_deployment'
+    set :app,                 'test'
+    set :branch,              'develop'
     set :domain,              '192.168.1.14'
     set :deploy_to,           '/home/deploy/www/test'
     set :sudoer,              'deploy'

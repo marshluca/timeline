@@ -1,7 +1,7 @@
 # FreeBSD
 namespace :env do
   task :production => [:environment] do
-    set :app,              'timeline'
+    set :app,                 'timeline'
     set :branch,              'develop'
     set :domain,              '192.168.1.14'
     set :deploy_to,           '/home/deploy/www/timeline'
