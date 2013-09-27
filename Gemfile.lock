@@ -94,6 +94,12 @@ GEM
       rack-accept
       rack-mount
       virtus
+    grape-jbuilder (0.1.0)
+      grape (>= 0.3)
+      i18n
+      jbuilder
+      tilt
+      tilt-jbuilder (>= 0.4.0)
     guard (1.8.3)
       formatador (>= 0.2.4)
       listen (~> 1.3)
@@ -116,6 +122,9 @@ GEM
       rspec (>= 1.3.1)
       selenium-webdriver (>= 0.1.3)
     jasmine-core (1.3.1)
+    jbuilder (1.5.1)
+      activesupport (>= 3.0.0)
+      multi_json (>= 1.2.0)
     journey (1.0.4)
     jquery-rails (2.1.4)
       railties (>= 3.0, < 5.0)
@@ -248,6 +257,9 @@ GEM
     thread_safe (0.1.3)
       atomic
     tilt (1.4.1)
+    tilt-jbuilder (0.5.2)
+      jbuilder
+      tilt
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
@@ -279,6 +291,7 @@ DEPENDENCIES
   eco
   factory_girl_rails
   grape
+  grape-jbuilder
   guard
   guard-rspec
   guard-spork
