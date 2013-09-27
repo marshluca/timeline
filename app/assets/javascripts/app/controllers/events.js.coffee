@@ -18,7 +18,8 @@ class App.Events extends Spine.Controller
 
     @routes
       "/events/:id": (params) ->
-        detail = new App.EventItem(params.id)
+        # TODO: bind detail to @rightSection
+        detail = new App.EventItem({id: params.id})
         @rightSection.html detail.el
 
     Event.bind 'refresh change', @render

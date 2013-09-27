@@ -11,9 +11,9 @@ class App.EventItem extends Spine.Controller
     "click [data-type=edit]": "edit"
     "click [data-type=destroy]": "destroy"
 
-  constructor: (id)->
+  constructor: (params)->
     super
-    @change(id)
+    @change(params.id)
 
   change: (id) ->
     @item = Event.find(id)
