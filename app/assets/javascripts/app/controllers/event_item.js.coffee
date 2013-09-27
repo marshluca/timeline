@@ -1,14 +1,25 @@
+$ = jQuery.sub()
+Event = App.Event
+
+$.fn.item = ->
+  elementID   = $(@).data('id')
+  elementID or= $(@).parents('[data-id]').data('id')
+  Event.find(elementID)
+
 class App.EventItem extends Spine.Controller
   events:
     "click [data-type=edit]": "edit"
     "click [data-type=destroy]": "destroy"
 
-  constructor: (params) ->
+  constructor: (id)->
     super
-    @item = params.item
-    @active @render
+    @change(id)
 
-  @render: =>
+  change: (id) ->
+    @item = Event.find(id)
+    @render()
+
+  render: =>
     @html @view('events/show')(@item)
 
   edit: (e) ->
