@@ -15,7 +15,13 @@ class App.Events extends Spine.Controller
 
   constructor: ->
     super
-    @log "events"
+
+    @routes
+      "/events/:id": (params) ->
+        # TODO: bind detail to @rightSection
+        detail = new App.EventItem({id: params.id})
+        @rightSection.html detail.el
+
     Event.bind 'refresh change', @render
     Event.fetch()
 
@@ -26,11 +32,7 @@ class App.Events extends Spine.Controller
   show: (e) ->
     e.preventDefault()
     item = $(e.target).item()
-    @rightSection.html @view('events/show')(item)
-    # use Route
-    # detail = new App.EventItem(item: item)
-    # @rightSection.html detail.el
-
+    @navigate('/events', item.id)
 
 
 # class New extends Spine.Controller
