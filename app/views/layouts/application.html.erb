@@ -1,85 +1,82 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Timeline</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tag %>
-</head>
-<body>
-  <header id="title">
-    <h1>Timeline</h1>
-    <input type="search" results="0" incremental="true" placeholder="Search">
-  </header>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= content_for?(:title) ? yield(:title) : "Timeline" %></title>
+    <%= csrf_meta_tags %>
 
-  <div id="wrapper">
-    <div id="sidebar">
-      <h3>Home</h3>
-      <ul>
-        <li><%= link_to "Logout", destroy_user_session_path, method: "delete" %></li>
-      </ul>
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js" type="text/javascript"></script>
+    <![endif]-->
 
-      <h3>Timeline</h3>
-      <ul id="channels">
-        <li data-name="today">Today</li>
-      </ul>
+    <%= stylesheet_link_tag "application", :media => "all" %>
 
-      <h3>Todos</h3>
-      <ul id="options">
-      </ul>
+    <!-- For third-generation iPad with high-resolution Retina display: -->
+    <!-- Size should be 144 x 144 pixels -->
+    <%= favicon_link_tag 'apple-touch-icon-144x144-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '144x144' %>
 
-      <h3>Statictis</h3>
+    <!-- For iPhone with high-resolution Retina display: -->
+    <!-- Size should be 114 x 114 pixels -->
+    <%= favicon_link_tag 'apple-touch-icon-114x114-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '114x114' %>
 
-      <h3>Settings</h3>
-    </div>
+    <!-- For first- and second-generation iPad: -->
+    <!-- Size should be 72 x 72 pixels -->
+    <%= favicon_link_tag 'apple-touch-icon-72x72-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '72x72' %>
 
-    <div class="vdivide"></div>
+    <!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
+    <!-- Size should be 57 x 57 pixels -->
+    <%= favicon_link_tag 'apple-touch-icon-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png' %>
 
-    <div id="content">
+    <!-- For all other devices -->
+    <!-- Size should be 32 x 32 pixels -->
+    <%= favicon_link_tag 'favicon.ico', :rel => 'shortcut icon' %>
 
-      <div id="messages">
-        <%= yield %>
-      </div>
+    <%= javascript_include_tag "application" %>
+  </head>
+  <body>
 
-      <!--
-      <div id="messages">
-        <ul class="items">
-        </ul>
-
-        <div class="new">
-          <textarea></textarea>
-          <button>Send</button>
+    <div id="header" class="navbar navbar-default">
+      <div class="container">
+        <a class="navbar-brand" href="#">Timeline</a>
+        <div class="nav-collapse collapse navbar-responsive-collapse">
+          <ul class="nav navbar-nav">
+            <li><%= link_to "Menu1", "/path1"  %></li>
+            <li><%= link_to "Menu2", "/path2"  %></li>
+            <li><%= link_to "Menu3", "/path3"  %></li>
+          </ul>
         </div>
       </div>
-
-      <div id="searches">
-        <h2>Search results: <span class="query"></span></h2>
-        <ul class="items"></ul>
-      </div>
-
-      <div id="settings">
-        <h2>Channels</h2>
-        <ul class="channels">
-        </ul>
-
-        <h2>Create Channel</h2>
-        <div class="createChannel">
-          <form>
-            <input type="text" placeholder="Channel name">
-            <button class="pill">New Channel</button>
-          </form>
-        </div>
-
-      </div>
-      <--!>
-
     </div>
-  </div>
 
-  <%# <%= script_template "message" %>
-  <%# <%= script_template "channels" %>
-  <%# <%= script_template "edit_channel" %>
-  <%# <%= script_template "search" %>
+    <div id="main" class="container">
+      <div>
+        <%= bootstrap_flash %>
+      </div>
 
-</body>
+      <div id="sidebar" class="well sidebar-nav">
+        <h3>Sidebar</h3>
+        <ul class="nav nav-list">
+          <li class="nav-header">Sidebar</li>
+          <li><%= link_to "Side1", "/path1"  %></li>
+          <li><%= link_to "Side2", "/path2"  %></li>
+          <li><%= link_to "Side3", "/path3"  %></li>
+        </ul>
+      </div><!--/.sidebar -->
+
+      <div id="content">
+        <div id="center">
+        </div>
+        <div id="right">
+        </div>
+      </div><!--/.content-->
+
+    </div> <!-- /container -->
+
+    <div id="footer">
+      <p>&copy; Company 2013</p>
+    </div>
+  </body>
 </html>

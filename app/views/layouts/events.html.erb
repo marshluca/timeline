@@ -30,9 +30,21 @@
       <a href="#menu"></a>
       Header
     </div>
-    <div id="content">
-      <%= yield %>
+    <div id="main">
+      <div id="sidebar">
+        <h1>Sidebar</h1>
+        <ul>
+          <li><a href="#">link</a></li>
+          <li><a href="#">link</a></li>
+          <li><a href="#">link</a></li>
+          <li><a href="#">link</a></li>
+          <li><a href="#">link</a></li>
+        </ul>
+      </div>
+      <div id="content">
+        <%= yield %>
+      </div>
     </div>
-  </div>
+    <div id="footer"></div>
 </body>
 </html>
