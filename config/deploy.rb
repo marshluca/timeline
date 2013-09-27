@@ -27,29 +27,12 @@ set :default_server,     'development'
 set :server, ENV['to'] || default_server
 invoke :"env:#{server}"
 
-namespace :faye do
-  desc "Start faye server"
-  task :start do
-    queue %[cd #{deploy_to!}/current/faye && bundle exec thin start -C thin.yml]
-  end
-
-  desc "Stop faye server"
-  task :stop do
-    queue %[cd #{deploy_to!}/current/faye && bundle exec thin stop -C thin.yml]
-  end
-
-  desc "Restart faye server"
-  task :restart do
-    queue %[cd #{deploy_to!}/current/faye && bundle exec thin restart -C thin.yml]
-  end
-end
-
 desc "Shows logs."
 task :log do
   queue %[cd #{deploy_to!}/current && tail -f log/production.log]
 end
 
-desc "Shows logs."
+desc "Load seed data"
 task :seed do
   queue %[cd #{deploy_to!}/current && RAILS_ENV=production bundle exec rake db:seed]
 end
@@ -65,7 +48,6 @@ task :deploy do
 
     to :launch do
       invoke :'unicorn:restart'
-      # invoke :'faye:restart'
     end
   end
 end
