@@ -12,15 +12,11 @@
 #= require_tree ./views
 
 class App extends Spine.Controller
-  elements:
-    "#center": "centerSection"
-
   constructor: ->
     super
 
     # Initialize controllers:
-    center = new App.Events({el :$("#center")})
-    @centerSection.html(center)
+    new App.Events({el: $("#center")})
 
     App.Event.one 'refresh', ->
       Spine.Route.setup(history: true)

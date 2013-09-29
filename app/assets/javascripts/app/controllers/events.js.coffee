@@ -1,5 +1,6 @@
 $ = jQuery.sub()
 Event = App.Event
+EventItem = App.EventItem
 
 $.fn.item = ->
   elementID   = $(@).data('id')
@@ -7,9 +8,6 @@ $.fn.item = ->
   Event.find(elementID)
 
 class App.Events extends Spine.Controller
-  elements:
-    "#right": "rightSection"
-
   events:
     "click [data-type=show]": "show"
 
@@ -18,9 +16,7 @@ class App.Events extends Spine.Controller
 
     @routes
       "/events/:id": (params) ->
-        # TODO: bind detail to @rightSection
-        detail = new App.EventItem({id: params.id})
-        @rightSection.html detail.el
+        new App.EventItem({el: $("#right"), id: params.id})
 
     Event.bind 'refresh change', @render
     Event.fetch()
