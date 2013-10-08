@@ -11,7 +11,7 @@ module Events
       # DELETE /events/:id(.json)
 
       desc "Return a list of events."
-      get do
+      get '', jbuilder: 'events' do
         @events = Event.all.limit(20).to_a
       end
 
@@ -19,17 +19,15 @@ module Events
       params do
         requires :id, type: String, desc: "Event id."
       end
-      route_param :id do
-        get do
+        get ':id', jbuilder: 'event' do
           @event = Event.find(params[:id])
         end
-      end
 
       desc "Create an event."
       params do
         requires :title, type: String, desc: "Your event."
       end
-      post do
+      post '', jbuilder: 'event' do
         @event = Event.create title: params[:title]
       end
 
@@ -38,7 +36,7 @@ module Events
         requires :id, type: String, desc: "Event ID."
         requires :title, type: String, desc: "Your event."
       end
-      put ':id' do
+      put ':id', jbuilder: 'event' do
         @event = Event.find(params[:id])
         @event.update_attributes title: params[:title]
         return @event
