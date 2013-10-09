@@ -47,7 +47,7 @@ describe Events::API do
     end
 
     it 'should update an event with event id and event info' do
-      put '/api/v1/events/'+@event.id, title: @event.title
+      put '/api/v1/events/'+@event.id, {id: @event.id, event: { title: @event.title, category: @event.category }}
       expect(response.status).to eq 200  #OK
     end
   end
