@@ -23,7 +23,7 @@ describe Events::API do
 
     it 'should get an event by id' do
       get '/api/v1/events/'+@event.id
-      @response_event_id = JSON.parse(response.body)["_id"]
+      @response_event_id = JSON.parse(response.body)["id"]
 
       expect(@response_event_id).to eq @event.id.to_s
     end

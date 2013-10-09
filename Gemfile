@@ -10,6 +10,7 @@ gem 'devise'
 
 #grape api
 gem "grape"
+gem 'grape-jbuilder'
 
 gem 'jquery-rails', '~> 2.1.4'
 gem 'json2-rails'
