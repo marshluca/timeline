@@ -31,7 +31,7 @@ describe Events::API do
 
   describe "POST /api/v1/events" do
     it 'should create an event with valid event info' do
-      post "/api/v1/events", title: "new event"
+      post "/api/v1/events", event: { title:"new event", category:"some category" }
       expect(response.status).to eq 201
     end
 
