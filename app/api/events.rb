@@ -25,20 +25,20 @@ module Events
 
       desc "Create an event."
       params do
-        requires :title, type: String, desc: "Your event."
+        requires :event, type: Hash, desc: "Event info."
       end
       post '', jbuilder: 'event' do
-        @event = Event.create title: params[:title]
+        @event = Event.create params[:event]
       end
 
       desc "Update an event."
       params do
-        requires :id, type: String, desc: "Event ID."
-        requires :title, type: String, desc: "Your event."
+        requires :id, type: String, desc: "Event id."
+        requires :event, type: Hash, desc: "Event info."
       end
       put ':id', jbuilder: 'event' do
         @event = Event.find(params[:id])
-        @event.update_attributes title: params[:title]
+        @event.update_attributes params[:event]
         return @event
       end
 
